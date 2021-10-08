@@ -1,0 +1,211 @@
+<html>
+
+<head>
+    <title>IP Project TEA-112 </title>
+</head>
+
+<style>
+
+body {
+  background-image: url('https://www.hdwallpapers.in/thumbs/2021/currency_euro_money_hd_money-t2.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+
+  font-family: sans-serif;
+}
+
+   input[type=text]{
+
+width: 40%;
+
+border:2px solid #aaa;
+
+border-radius:6px;
+
+margin:10px 0;
+
+outline:none;
+
+padding:10px;
+
+box-sizing:border-box;
+
+transition:.3s;
+
+
+}
+
+input[type=text]:focus{
+
+border-color:dodgerBlue;
+
+box-shadow:0 0 8px 0 dodgerBlue;
+
+}
+
+   
+    button[type=button] {
+        width: 10%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button[type=button]:hover {
+        background-color: #45a049;
+    }
+
+    button[type=reset] {
+        width: 10%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button[type=reset]:hover {
+        background-color: #45a049;
+    }
+
+
+
+select{
+        width: 10%;
+  
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+}
+
+
+</style>
+
+<body>
+
+
+    <br>
+    <font size="6" color=>
+    <h2 align="left" >Interest Caluculator</h2>
+
+ 
+
+    <h3 align="center" > Simple Interest Calucation</h3>
+
+   
+
+    <form align="center">
+        <label for="sprincipal">Principle Amount</label>
+        <br>
+      <input type="text" id="sprincipal" name="sprincipal">
+
+        <br>
+
+        <label for="srate">Interest Rate</label>
+        <br>
+        <input type="text" id="srate" name="srate">
+
+        <br>
+        <label for="stime">Period (Years)</label>
+        <br>
+        <input type="text" id="stime" name="stime">
+
+        <br>
+        <button type="button" onclick=sinterest()>Submit</button> <button type="reset">Reset</button>
+        <br>
+
+        <label for="sintamt">Interest Amount</label>
+        <br>
+        <input type="text" id="sintamt" name="sintamt">
+
+
+    </form>
+
+    <br>
+    <br>
+
+    <h3 align="center"> Compound Interest Calucation</h3> <br>
+
+    <form align="center">
+        <label for="principle">Principle Amount</label>
+        <br>
+        <input type="text" id="principal" name="principle">
+
+        <br>
+
+        <label for="rate">Interest Rate</label>
+        <br>
+        <input type="text" id="rate" name="rate">
+
+        <br>
+        <label for="time">Period (Years)</label>
+        <br>
+        <input type="text" id="time" name="time">
+
+
+        <br>
+        <label for="freq">Compounding Frequency</label>
+        <br>
+        <select id=freq >
+            <option value =1. selected>Yearly (1)
+               <option value=2>Half-yearly (2)
+                  <option value=4 >Quarterly (4)
+            <option value=12>Monthly (12)
+
+         </select>
+
+        <br>
+        <button type="button" onclick=cinterest()>Submit</button> <button type="reset">Reset</button>
+        <br>
+
+        <label for="lname">Interest Amount</label>
+        <br>
+        <input type="text" id="inttamt" name="lastname">
+
+
+    </form>
+
+    </font>
+    <script>
+        // for simple interest
+
+        function sinterest() {
+            var principal = document.getElementById('sprincipal').value;
+            var rate = document.getElementById('srate').value;
+            var time = document.getElementById('stime').value;
+
+            document.getElementById('sintamt').value = Math.round((document.getElementById('sprincipal').value * rate * time) / 100)
+
+        }
+
+
+        // for compound interest
+
+        function cinterest() {
+            var principal = document.getElementById('principal').value;
+            var rate = document.getElementById('rate').value;
+            var time = document.getElementById('time').value;
+            var freq = document.getElementById('freq').value;
+            var time = document.getElementById('time').value;
+            var irate = rate / freq;
+            var inttamt = document.getElementById('inttamt').value;
+            var decimal = 2;
+
+            document.getElementById('inttamt').value = Math.round((document.getElementById('principal').value * Math.pow((1 + irate / 100), (time * freq)) * 1 - principal * 1) * 100) / 100
+
+        }
+    </script>
+
+</body>
+
+
+</html>
